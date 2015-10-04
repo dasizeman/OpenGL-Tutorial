@@ -1,0 +1,16 @@
+# ignore everything
+*
+
+# except...
+!.gitignore
+!*.c
+!*.cpp
+!*.h
+!*.lib
+
+# even in subdirectories
+!*/
+
+GLTutorial/Debug/GLTutorial.lib
+
+
