@@ -1,4 +1,7 @@
-#include <GLFW\glfw3.h>
+#define GLEW_STATIC
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
+#include <iostream>
 
 int main()
 {
@@ -16,16 +19,20 @@ int main()
 
 	glfwMakeContextCurrent(window);
 
+	glewExperimental = GL_TRUE;
+	glewInit();
+
+	GLuint vertexBuffer;
+	glGenBuffers(1, &vertexBuffer);
+	std::cout << vertexBuffer << std::endl;
+
 	while (!glfwWindowShouldClose(window))
 	{
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 
-		// For getting out in full screen
-		/*
 		if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-			lfwSetWindowShouldClose(window, GL_TRUE);
-			*/
+			glfwSetWindowShouldClose(window, GL_TRUE);
 	}
 
 
