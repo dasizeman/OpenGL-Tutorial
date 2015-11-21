@@ -5,12 +5,6 @@ deployment process on both.  Since Windows development is currently the minority
 of the development I do, I'm going to put this all in a single repository.  If
 that gets too much I'll split it out later.
 
-This is mostly going to be done in Visual Studio, but I'm not too experienced
-with what parts of a VS project are good to track in version control (if someone
-wanted to educate me I would appreciate it), so I'm just going to track source
-code for now.  If anyone is interested in what I'm doing and wants details on
-how I set up the environment just ping me.
-
 I will actually track some compiled library binaries for other's convenience.
 For example the GLFW library (http://www.glfw.org/) didn't have binaries for
 VS2015 so I built them.  Maybe having them here will save somebody some time.
