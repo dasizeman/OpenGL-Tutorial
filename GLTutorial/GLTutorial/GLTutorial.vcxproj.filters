@@ -15,11 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\glfw-3.1.1.bin.WIN32\include\GLFW\glfw3.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="tutorial_drawing.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
