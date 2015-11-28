@@ -1,10 +1,5 @@
 #define GLEW_STATIC
-#include <iostream>
-#include <exception>
-#include <string>
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
-
+#include "GLUtils.h"
 
 void compileShader(const GLuint shader, GLchar const * const source);
 
@@ -35,22 +30,6 @@ int main()
 		-0.5f, -0.5f
 	};
 
-	// Shaders
-	GLchar const *vertexShaderSource =
-		"#version 150\n"
-		"in vec2 position;\n"
-		"void main()\n"
-		"{\n"
-			"gl_Position = vec4(position, 0.0, 1.0);\n"
-		"}\n";
-
-	GLchar const *fragmentShaderSource =
-		"#version 150\n"
-		"out vec4 outColor;\n"
-		"void main()\n"
-		"{\n"
-			"outColor = vec4(1.0, 1.0, 1.0, 1.0);\n"
-		"}\n";
 
 	// The VAO
 	GLuint vao;
@@ -59,11 +38,19 @@ int main()
 
 	
 	// Create and compile the shaders
-	GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
-	compileShader(vertexShader, vertexShaderSource);
+	GLuint vertexShader, fragmentShader;
+	try {
+		vertexShader = glCreateShader(GL_VERTEX_SHADER);
+		GLUtils::compileShaderFromFile(vertexShader, "basic_vertex.glsl");
 
-	GLuint fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-	compileShader(fragmentShader, fragmentShaderSource);
+		fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+		GLUtils::compileShaderFromFile(fragmentShader, "basic_fragment.glsl");
+	}
+	catch (std::exception e)
+	{
+		system("pause");
+		return -1;
+	}
 
 	GLuint vertexBuffer;
 	glGenBuffers(1, &vertexBuffer);
@@ -119,33 +106,3 @@ int main()
 	
 }
 
-void compileShader(const GLuint shader, GLchar const * const source)
-{
-	GLchar *logBuffer;
-
-	std::cout << "Trying to compile shader...";
-	glShaderSource(shader, 1, &source, NULL);
-	glCompileShader(shader);
-
-	// Check the the compile status
-	GLint status;
-	glGetShaderiv(shader, GL_COMPILE_STATUS, &status);
-
-	if (GL_TRUE == status)
-	{
-		std::cout << "Success!" << std::endl;
-		return;
-	}
-
-	// Dump the shader info log and throw an exception if compilation was not
-	// sucessful
-	GLint logLength;
-	glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &logLength);
-
-	logBuffer = (GLchar*)malloc(logLength);
-	glGetShaderInfoLog(shader, logLength, NULL, logBuffer);
-
-	std::cout << std::string(logBuffer) << std::endl;
-	throw std::exception("Shader compilation failed.");
-
-}

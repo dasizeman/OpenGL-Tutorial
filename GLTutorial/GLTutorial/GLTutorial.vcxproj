@@ -126,7 +126,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GLUtils.cpp" />
     <ClCompile Include="tutorial_drawing.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GLUtils.h" />
+    <ClInclude Include="stb_easy_font.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="basic_fragment.glsl" />
+    <None Include="basic_vertex.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
