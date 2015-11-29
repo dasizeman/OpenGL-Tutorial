@@ -22,6 +22,9 @@ int main()
 	glewExperimental = GL_TRUE;
 	glewInit();
 
+	GLUtils::checkGlError(); // Clear any stale error flags
+
+#if 0
 	// Vertex data
 	float vertices[] =
 	{
@@ -84,6 +87,7 @@ int main()
 
 	// Actually enable the VAA
 	glEnableVertexAttribArray(posAttrib);
+#endif
 
 	while (!glfwWindowShouldClose(window))
 	{
@@ -92,7 +96,10 @@ int main()
 		// - The type of primitive to use
 		// - Number of vertices to skip at beginning
 		// - Number of vertices to process
-		glDrawArrays(GL_TRIANGLES, 0, 3);
+		//glDrawArrays(GL_TRIANGLES, 0, 3);
+
+		GLUtils::displayBasicText(0, 0, "This is text!");
+		//std::cout << glGetError() << std::endl;
 
 		glfwSwapBuffers(window);
 		glfwPollEvents();
