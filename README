@@ -1,10 +1,1 @@
-This is a repository to track development that I do in Windows.  This started
-because I'm teaching myself OpenGL and wanted to make sure my GL projects would
-always build on both Windows and Linux for experience in the build and
-deployment process on both.  Since Windows development is currently the minority
-of the development I do, I'm going to put this all in a single repository.  If
-that gets too much I'll split it out later.
-
-I will actually track some compiled library binaries for other's convenience.
-For example the GLFW library (http://www.glfw.org/) didn't have binaries for
-VS2015 so I built them.  Maybe having them here will save somebody some time.
+MWAHAHAHAHAHAH
