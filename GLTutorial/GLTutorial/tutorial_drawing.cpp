@@ -1,3 +1,4 @@
+#include <chrono>
 #define GLEW_STATIC
 #include "GLUtils.h"
 
@@ -86,8 +87,21 @@ int main()
 	// Actually enable the VAA
 	glEnableVertexAttribArray(posAttrib);
 
+	// Get the triangle color uniform
+	GLint uniColor = glGetUniformLocation(shaderProgram, "triangleColor");
+	glUniform3f(uniColor, 1.0f, 0.0f, 0.0f);
+
+	auto t_start = std::chrono::high_resolution_clock::now();
+
+
 	while (!glfwWindowShouldClose(window))
 	{
+
+		auto t_now = std::chrono::high_resolution_clock::now();
+		float time = std::chrono::duration_cast<std::chrono::duration<float>>
+			(t_now - t_start).count();
+
+		glUniform3f(uniColor, (sin(time * 4.0f) + 1.0f) / 2.0f, 0.0f, 0.0f);
 		// Draw using the active VAO
 		// Args:
 		// - The type of primitive to use
