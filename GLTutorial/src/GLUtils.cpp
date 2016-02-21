@@ -60,7 +60,7 @@ void GLUtils::compileShaderFromString(const GLuint shader, std::string source)
 
 	
 	std::cout << std::string(logBuffer) << std::endl;
-	throw std::exception("Shader compilation failed.");
+	throw std::runtime_error("Shader compilation failed.");
 
 }
 

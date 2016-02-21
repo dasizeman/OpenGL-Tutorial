@@ -1,3 +1,4 @@
+#include <cmath>
 #include <chrono>
 #define GLEW_STATIC
 #include "GLUtils.h"
