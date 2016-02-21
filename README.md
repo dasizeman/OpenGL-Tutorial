@@ -7,17 +7,18 @@ This project also serves two other purposes, namely:
 
 Notes on building:
 * I use CMake to maintain the build
-    * On Windows, the CMake GUI will let you generate VS project files.  Neat!  I'm
-pretty sure only VS2015 will work, and I haven't tested other versions.
+    * On Windows, the CMake GUI will let you generate VS project files.  Neat!
+      I'm pretty sure only VS2015 will work, and I haven't tested other
+      versions.
     * On Linux, I recommend creating a build directory in the location of
-CMakeLists.txt, changing to that directory  and doing cmake ./..  This will
-generate the Makefile for you. Some notes about the Linux build:
-    * I have only tested building on Ubuntu 14.04.  On that platform, since I
-already include the static libraries, the only extra dependency package I've
-found that you need so far is libglu1-mesa-dev.  I will update as I find more.
-Also please let me know if you build this on other Linux platforms, and how you
-did it, or if you found any other dependencies that I missed for Ubuntu, so I
-can update this info.
+      CMakeLists.txt, changing to that directory  and doing cmake ./..  This
+      will generate the Makefile for you.
+* I have only tested the Linux build on Ubuntu 14.04.  The current additional
+  dependencies I am aware of are:
+    * libglu1-mesa-dev
+* Please let me know if you build this on other Linux platforms, and how you did
+  it, or if you found any other dependencies that I missed for Ubuntu, so I can
+  update this info.
 
 Notes on running:
 * All shader (.glsl) files need to be copied to the same directory as the
