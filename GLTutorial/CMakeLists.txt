@@ -27,7 +27,7 @@ else()
     set(GLFW_LIB_NAME libglfw3.a)
     # Found these by running pkg-config --static --libs glfw3 after installing
     # glfw3 from source
-    set(GLFW_LIBS glfw3 rt Xrandr Xinerama Xi Xcursor GL m dl Xrender drm Xdamage X11-xcb xcb-glx xcb-dri2 xcb-dri3 xcb-present xcb-sync xshmfence Xxf86vm Xfixes Xext X11 pthread xcb Xau Xdmcp)
+    set(GLFW_LIBS glfw3 rt Xrandr Xinerama Xi Xcursor m dl Xrender drm Xdamage X11-xcb xcb-glx xcb-dri2 xcb-dri3 xcb-present xcb-sync xshmfence Xxf86vm Xfixes Xext X11 pthread xcb Xau Xdmcp)
 endif()
 
 
